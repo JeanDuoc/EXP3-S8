@@ -1,0 +1,7 @@
+﻿CONTAINER                         REPOSITORY                   TAG                 PLATFORM            IMAGE ID            SIZE                CREATED
+banco-xyz-s8-artemis-1            apache/artemis               2.57.0-alpine       linux/amd64         69feac4bc8f7        131MB               3 weeks ago
+banco-xyz-s8-auth-server-1        banco-xyz/auth-server        s8                  linux/amd64         17d8905cdcab        120MB               5 minutes ago
+banco-xyz-s8-config-server-1      banco-xyz/config-server      s8                  linux/amd64         c1cd0edc87b6        137MB               5 minutes ago
+banco-xyz-s8-cuentas-service-1    banco-xyz/cuentas-service    s8                  linux/amd64         ad678ea4cb09        161MB               5 minutes ago
+banco-xyz-s8-discovery-server-1   banco-xyz/discovery-server   s8                  linux/amd64         0d2cfbee790e        148MB               5 minutes ago
+banco-xyz-s8-mysql-1              mysql                        8.4                 linux/amd64         6ea90827b110        239MB               6 days ago

@@ -1,0 +1,46 @@
+{
+  "repository": "https://github.com/KariVillagran/bank_legacy_data",
+  "tree_sha": "ef9c7bb1c5a820b1a24220d482d1a85149cb4cbe",
+  "files": [
+    [
+      "README.md",
+      "becd4ab1f35ab0dc918cd0787c9c0a73de2f422a"
+    ],
+    [
+      "data/semana_1/cuentas_anuales.csv",
+      "15b85a3efdba9077b2c2904cc485ffdf3feaff7c"
+    ],
+    [
+      "data/semana_1/intereses.csv",
+      "90df8ec728d108e700c6d4d30ee0f054df6edadd"
+    ],
+    [
+      "data/semana_1/transacciones.csv",
+      "47bd42be8e8c3b64a43672c19d2631133affa62f"
+    ],
+    [
+      "data/semana_2/cuentas_anuales.csv",
+      "5075119be3f2129e19754cae0115ecf65274d10e"
+    ],
+    [
+      "data/semana_2/intereses.csv",
+      "cf74f05524870373588ccf990a3f0ab0d0283faa"
+    ],
+    [
+      "data/semana_2/transacciones.csv",
+      "38b5eda655c8db946d18d21848fc6de6e7193bc5"
+    ],
+    [
+      "data/semana_3/cuentas_anuales.csv",
+      "93f490872a71c714f807753024d314059c37f23f"
+    ],
+    [
+      "data/semana_3/intereses.csv",
+      "f58876bfb499f021d0bf6e40b3860bb66a889476"
+    ],
+    [
+      "data/semana_3/transacciones.csv",
+      "d0aead02e173fc97952ba50131e6125fe010f821"
+    ]
+  ]
+}

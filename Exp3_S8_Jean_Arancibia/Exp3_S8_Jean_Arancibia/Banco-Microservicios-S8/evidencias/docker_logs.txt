@@ -1,0 +1,390 @@
+﻿config-server-1     | Picked up JAVA_TOOL_OPTIONS: -XX:MaxRAMPercentage=70.0
+artemis-1           | WARNING: A restricted method in java.lang.System has been called
+discovery-server-1  | Picked up JAVA_TOOL_OPTIONS: -XX:MaxRAMPercentage=70.0
+mysql-1             | 2026-10-06 02:06:36+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.4.11-1.el9 started.
+cuentas-service-1   | Picked up JAVA_TOOL_OPTIONS: -XX:MaxRAMPercentage=70.0
+mysql-1             | 2026-10-06 02:06:36+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+artemis-1           | WARNING: java.lang.System::loadLibrary has been called by org.apache.activemq.artemis.nativo.jlibaio.LibaioContext in an unnamed module (file:/opt/artemis/lib/activemq-artemis-native-2.0.0.jar)
+mysql-1             | 2026-10-06 02:06:36+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.4.11-1.el9 started.
+mysql-1             | 2026-10-06 02:06:37+00:00 [Note] [Entrypoint]: Initializing database files
+discovery-server-1  | 
+mysql-1             | 2026-10-06T02:06:37.220071Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+discovery-server-1  |   .   ____          _            __ _ _
+discovery-server-1  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+config-server-1     | 
+discovery-server-1  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+discovery-server-1  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+mysql-1             | 2026-10-06T02:06:37.224220Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.4.11) initializing of server in progress as process 80
+discovery-server-1  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+discovery-server-1  |  =========|_|==============|___/=/_/_/_/
+discovery-server-1  | 
+discovery-server-1  |  :: Spring Boot ::               (v3.5.16)
+discovery-server-1  | 
+discovery-server-1  | 2026-10-06T02:07:46.676Z  INFO 1 --- [discovery-server] [           main] c.d.d.DiscoveryServerApplication         : Starting DiscoveryServerApplication v2.0.0 using Java 17.0.20.1 with PID 1 (/app/app.jar started by banco in /app)
+discovery-server-1  | 2026-10-06T02:07:46.683Z  INFO 1 --- [discovery-server] [           main] c.d.d.DiscoveryServerApplication         : No active profile set, falling back to 1 default profile: "default"
+discovery-server-1  | 2026-10-06T02:07:50.116Z  INFO 1 --- [discovery-server] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=cf1599cf-f351-3c63-9922-43ad7b09fd73
+discovery-server-1  | 2026-10-06T02:07:50.642Z  INFO 1 --- [discovery-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8761 (http)
+discovery-server-1  | 2026-10-06T02:07:50.674Z  INFO 1 --- [discovery-server] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+discovery-server-1  | 2026-10-06T02:07:50.674Z  INFO 1 --- [discovery-server] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+discovery-server-1  | 2026-10-06T02:07:50.742Z  INFO 1 --- [discovery-server] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+discovery-server-1  | 2026-10-06T02:07:50.745Z  INFO 1 --- [discovery-server] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3882 ms
+discovery-server-1  | 2026-10-06T02:07:52.901Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+discovery-server-1  | 2026-10-06T02:07:52.904Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+discovery-server-1  | 2026-10-06T02:07:53.358Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+discovery-server-1  | 2026-10-06T02:07:53.358Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+discovery-server-1  | 2026-10-06T02:07:53.749Z  INFO 1 --- [discovery-server] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name infraUsers
+discovery-server-1  | 2026-10-06T02:07:54.147Z  INFO 1 --- [discovery-server] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+discovery-server-1  | 2026-10-06T02:07:54.225Z  INFO 1 --- [discovery-server] [           main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+discovery-server-1  | 2026-10-06T02:07:55.311Z  WARN 1 --- [discovery-server] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+discovery-server-1  | 2026-10-06T02:07:55.349Z  INFO 1 --- [discovery-server] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+discovery-server-1  | 2026-10-06T02:07:55.380Z  INFO 1 --- [discovery-server] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+discovery-server-1  | 2026-10-06T02:07:55.380Z  INFO 1 --- [discovery-server] [           main] com.netflix.discovery.DiscoveryClient    : Client configured to neither register nor query for data.
+discovery-server-1  | 2026-10-06T02:07:55.384Z  INFO 1 --- [discovery-server] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1791252475382 with initial instances count: 0
+discovery-server-1  | 2026-10-06T02:07:55.452Z  INFO 1 --- [discovery-server] [           main] c.n.eureka.DefaultEurekaServerContext    : Initializing ...
+discovery-server-1  | 2026-10-06T02:07:55.454Z  INFO 1 --- [discovery-server] [           main] c.n.eureka.cluster.PeerEurekaNodes       : Adding new peer nodes [http://localhost:8761/eureka/]
+discovery-server-1  | 2026-10-06T02:07:55.624Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+discovery-server-1  | 2026-10-06T02:07:55.624Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+auth-server-1       | Picked up JAVA_TOOL_OPTIONS: -XX:MaxRAMPercentage=70.0
+discovery-server-1  | 2026-10-06T02:07:55.625Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+discovery-server-1  | 2026-10-06T02:07:55.625Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+discovery-server-1  | 2026-10-06T02:07:55.695Z  INFO 1 --- [discovery-server] [           main] c.n.eureka.cluster.PeerEurekaNodes       : Replica node URL:  http://localhost:8761/eureka/
+mysql-1             | 2026-10-06T02:06:37.240148Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+artemis-1           | WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+mysql-1             | 2026-10-06T02:06:38.022489Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+artemis-1           | WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+artemis-1           | 
+auth-server-1       | 
+mysql-1             | 2026-10-06T02:06:40.468221Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+auth-server-1       |   .   ____          _            __ _ _
+artemis-1           | Creating Apache Artemis instance at: /var/lib/artemis-instance
+artemis-1           | 
+artemis-1           | Auto tuning journal ...
+artemis-1           | WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+artemis-1           | WARNING: sun.misc.Unsafe::allocateMemory has been called by io.netty.util.internal.PlatformDependent0$2 (file:/opt/artemis/lib/netty-common-4.1.137.Final.jar)
+artemis-1           | WARNING: Please consider reporting this to the maintainers of class io.netty.util.internal.PlatformDependent0$2
+artemis-1           | WARNING: sun.misc.Unsafe::allocateMemory will be removed in a future release
+artemis-1           | done! Your system can make 35.71 writes per millisecond, your journal-buffer-timeout will be 28000
+artemis-1           | 
+artemis-1           | You can now start the broker by executing:  
+artemis-1           | 
+artemis-1           |    "/var/lib/artemis-instance/bin/artemis" run
+artemis-1           | 
+artemis-1           | Or you can run the broker in the background using:
+artemis-1           | 
+artemis-1           |    "/var/lib/artemis-instance/bin/artemis-service" start
+artemis-1           | 
+cuentas-service-1   | 
+cuentas-service-1   |   .   ____          _            __ _ _
+cuentas-service-1   |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+cuentas-service-1   | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+cuentas-service-1   |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+cuentas-service-1   |   '  |____| .__|_| |_|_| |_\__, | / / / /
+config-server-1     |   .   ____          _            __ _ _
+auth-server-1       |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+config-server-1     |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+auth-server-1       | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+config-server-1     | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+auth-server-1       |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+auth-server-1       |   '  |____| .__|_| |_|_| |_\__, | / / / /
+auth-server-1       |  =========|_|==============|___/=/_/_/_/
+config-server-1     |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+cuentas-service-1   |  =========|_|==============|___/=/_/_/_/
+config-server-1     |   '  |____| .__|_| |_|_| |_\__, | / / / /
+cuentas-service-1   | 
+discovery-server-1  | 2026-10-06T02:07:55.722Z  INFO 1 --- [discovery-server] [           main] c.n.e.registry.AbstractInstanceRegistry  : Finished initializing remote region registries. All known remote regions: []
+cuentas-service-1   |  :: Spring Boot ::               (v3.5.16)
+discovery-server-1  | 2026-10-06T02:07:55.722Z  INFO 1 --- [discovery-server] [           main] c.n.eureka.DefaultEurekaServerContext    : Initialized
+mysql-1             | 2026-10-06T02:06:44.367476Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
+mysql-1             | 2026-10-06 02:06:44+00:00 [Note] [Entrypoint]: Database files initialized
+mysql-1             | 2026-10-06 02:06:44+00:00 [Note] [Entrypoint]: Starting temporary server
+mysql-1             | 2026-10-06T02:06:44.500951Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+mysql-1             | 2026-10-06T02:06:44.917566Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.4.11) starting as process 129
+mysql-1             | 2026-10-06T02:06:44.966997Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+discovery-server-1  | 2026-10-06T02:07:55.793Z  INFO 1 --- [discovery-server] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application DISCOVERY-SERVER with eureka with status UP
+discovery-server-1  | 2026-10-06T02:07:55.813Z  INFO 1 --- [discovery-server] [       Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : isAws returned false
+discovery-server-1  | 2026-10-06T02:07:55.814Z  INFO 1 --- [discovery-server] [       Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : Initialized server context
+discovery-server-1  | 2026-10-06T02:07:55.814Z  INFO 1 --- [discovery-server] [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Got 1 instances from neighboring DS node
+discovery-server-1  | 2026-10-06T02:07:55.815Z  INFO 1 --- [discovery-server] [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Renew threshold is: 1
+discovery-server-1  | 2026-10-06T02:07:55.815Z  INFO 1 --- [discovery-server] [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Changing status to UP
+discovery-server-1  | 2026-10-06T02:07:55.818Z  INFO 1 --- [discovery-server] [       Thread-9] e.s.EurekaServerInitializerConfiguration : Started Eureka Server
+discovery-server-1  | 2026-10-06T02:07:55.822Z  INFO 1 --- [discovery-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8761 (http) with context path '/'
+discovery-server-1  | 2026-10-06T02:07:55.824Z  INFO 1 --- [discovery-server] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8761
+artemis-1           |      _        _               _
+artemis-1           |     / \  ____| |_  ___ __  __(_) _____
+artemis-1           |    / _ \|  _ \ __|/ _ \  \/  | |/  __/
+artemis-1           |   / ___ \ | \/ |_/  __/ |\/| | |\___ \
+artemis-1           |  /_/   \_\|   \__\____|_|  |_|_|/___ /
+auth-server-1       | 
+auth-server-1       |  :: Spring Boot ::               (v3.5.16)
+auth-server-1       | 
+auth-server-1       | 2026-10-06T02:07:46.329Z  INFO 1 --- [auth-server] [           main] c.duoc.authserver.AuthServerApplication  : Starting AuthServerApplication v2.0.0 using Java 17.0.20.1 with PID 1 (/app/app.jar started by banco in /app)
+auth-server-1       | 2026-10-06T02:07:46.340Z  INFO 1 --- [auth-server] [           main] c.duoc.authserver.AuthServerApplication  : No active profile set, falling back to 1 default profile: "default"
+auth-server-1       | 2026-10-06T02:07:49.725Z  INFO 1 --- [auth-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9000 (http)
+auth-server-1       | 2026-10-06T02:07:49.760Z  INFO 1 --- [auth-server] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+auth-server-1       | 2026-10-06T02:07:49.761Z  INFO 1 --- [auth-server] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+auth-server-1       | 2026-10-06T02:07:49.851Z  INFO 1 --- [auth-server] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+auth-server-1       | 2026-10-06T02:07:49.854Z  INFO 1 --- [auth-server] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3367 ms
+auth-server-1       | 2026-10-06T02:07:50.640Z  INFO 1 --- [auth-server] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name users
+auth-server-1       | 2026-10-06T02:07:52.640Z  INFO 1 --- [auth-server] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+auth-server-1       | 2026-10-06T02:07:53.289Z  INFO 1 --- [auth-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9000 (http) with context path '/'
+auth-server-1       | 2026-10-06T02:07:53.320Z  INFO 1 --- [auth-server] [           main] c.duoc.authserver.AuthServerApplication  : Started AuthServerApplication in 8.209 seconds (process running for 9.123)
+auth-server-1       | 2026-10-06T02:07:54.488Z  INFO 1 --- [auth-server] [nio-9000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+auth-server-1       | 2026-10-06T02:07:54.489Z  INFO 1 --- [auth-server] [nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+auth-server-1       | 2026-10-06T02:07:54.491Z  INFO 1 --- [auth-server] [nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+auth-server-1       | 2026-10-06T02:11:28.838Z  WARN 1 --- [auth-server] [nio-9000-exec-4] 2AuthorizationCodeAuthenticationProvider : Invalidated authorization token(s) previously issued to registered client 'banco-web-id'
+discovery-server-1  | 2026-10-06T02:07:55.847Z  INFO 1 --- [discovery-server] [           main] c.d.d.DiscoveryServerApplication         : Started DiscoveryServerApplication in 10.549 seconds (process running for 11.618)
+mysql-1             | 2026-10-06T02:06:45.607367Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+discovery-server-1  | 2026-10-06T02:07:59.592Z  INFO 1 --- [discovery-server] [nio-8761-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+config-server-1     |  =========|_|==============|___/=/_/_/_/
+discovery-server-1  | 2026-10-06T02:07:59.592Z  INFO 1 --- [discovery-server] [nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+discovery-server-1  | 2026-10-06T02:07:59.594Z  INFO 1 --- [discovery-server] [nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+mysql-1             | 2026-10-06T02:06:46.538759Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+mysql-1             | 2026-10-06T02:06:46.538846Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+artemis-1           |  Apache Artemis 2.57.0
+mysql-1             | 2026-10-06T02:06:46.544456Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+artemis-1           | 
+mysql-1             | 2026-10-06T02:06:46.607290Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Socket: /var/run/mysqld/mysqlx.sock
+cuentas-service-1   | 
+mysql-1             | 2026-10-06T02:06:46.607527Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.4.11'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  MySQL Community Server - GPL.
+cuentas-service-1   | 2026-10-06T02:08:02.052Z  INFO 1 --- [cuentas-service] [           main] c.d.c.CuentasServiceApplication          : Starting CuentasServiceApplication v2.0.0 using Java 17.0.20.1 with PID 1 (/app/app.jar started by banco in /app)
+mysql-1             | 2026-10-06 02:06:46+00:00 [Note] [Entrypoint]: Temporary server started.
+mysql-1             | '/var/lib/mysql/mysql.sock' -> '/var/run/mysqld/mysqld.sock'
+mysql-1             | 2026-10-06 02:06:51+00:00 [Note] [Entrypoint]: Creating database bank_cloud
+mysql-1             | 2026-10-06 02:06:51+00:00 [Note] [Entrypoint]: Creating user banco
+cuentas-service-1   | 2026-10-06T02:08:02.055Z  INFO 1 --- [cuentas-service] [           main] c.d.c.CuentasServiceApplication          : The following 1 profile is active: "mysql"
+discovery-server-1  | 2026-10-06T02:08:08.807Z  INFO 1 --- [discovery-server] [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/a285a6a01e8c:cuentas-service:8081 with status UP (replication=false)
+discovery-server-1  | 2026-10-06T02:08:09.725Z ERROR 1 --- [discovery-server] [get_localhost-0] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:08:09.728Z  WARN 1 --- [discovery-server] [get_localhost-0] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-0 due to permanent error
+discovery-server-1  | 2026-10-06T02:08:19.132Z ERROR 1 --- [discovery-server] [get_localhost-1] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:08:19.132Z  WARN 1 --- [discovery-server] [get_localhost-1] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-1 due to permanent error
+discovery-server-1  | 2026-10-06T02:08:29.203Z ERROR 1 --- [discovery-server] [get_localhost-2] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:08:29.203Z  WARN 1 --- [discovery-server] [get_localhost-2] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-2 due to permanent error
+discovery-server-1  | 2026-10-06T02:08:39.278Z ERROR 1 --- [discovery-server] [get_localhost-3] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:08:39.278Z  WARN 1 --- [discovery-server] [get_localhost-3] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-3 due to permanent error
+discovery-server-1  | 2026-10-06T02:08:49.349Z ERROR 1 --- [discovery-server] [get_localhost-5] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:08:49.350Z  WARN 1 --- [discovery-server] [get_localhost-5] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-5 due to permanent error
+discovery-server-1  | 2026-10-06T02:08:55.816Z  INFO 1 --- [discovery-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+discovery-server-1  | 2026-10-06T02:08:59.430Z ERROR 1 --- [discovery-server] [get_localhost-4] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+mysql-1             | 2026-10-06 02:06:51+00:00 [Note] [Entrypoint]: Giving user banco access to schema bank_cloud
+config-server-1     | 
+mysql-1             | 
+discovery-server-1  | 2026-10-06T02:08:59.430Z  WARN 1 --- [discovery-server] [get_localhost-4] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-4 due to permanent error
+discovery-server-1  | 2026-10-06T02:09:09.498Z ERROR 1 --- [discovery-server] [get_localhost-6] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:09:09.499Z  WARN 1 --- [discovery-server] [get_localhost-6] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-6 due to permanent error
+discovery-server-1  | 2026-10-06T02:09:19.573Z ERROR 1 --- [discovery-server] [et_localhost-10] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:09:19.574Z  WARN 1 --- [discovery-server] [et_localhost-10] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-10 due to permanent error
+discovery-server-1  | 2026-10-06T02:09:29.642Z ERROR 1 --- [discovery-server] [et_localhost-11] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:09:29.642Z  WARN 1 --- [discovery-server] [et_localhost-11] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-11 due to permanent error
+discovery-server-1  | 2026-10-06T02:09:39.715Z ERROR 1 --- [discovery-server] [get_localhost-0] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:09:39.715Z  WARN 1 --- [discovery-server] [get_localhost-0] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-0 due to permanent error
+discovery-server-1  | 2026-10-06T02:09:49.785Z ERROR 1 --- [discovery-server] [get_localhost-1] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:09:49.786Z  WARN 1 --- [discovery-server] [get_localhost-1] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-1 due to permanent error
+cuentas-service-1   | 2026-10-06T02:08:02.109Z  INFO 1 --- [cuentas-service] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+cuentas-service-1   | 2026-10-06T02:08:02.109Z  INFO 1 --- [cuentas-service] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=cuentas-service, profiles=[default], label=null, version=null, state=null
+cuentas-service-1   | 2026-10-06T02:08:02.109Z  INFO 1 --- [cuentas-service] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+cuentas-service-1   | 2026-10-06T02:08:02.110Z  INFO 1 --- [cuentas-service] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=cuentas-service, profiles=[mysql], label=null, version=null, state=null
+cuentas-service-1   | 2026-10-06T02:08:03.804Z  INFO 1 --- [cuentas-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=fc3e205c-24a2-3647-8642-1209384432de
+cuentas-service-1   | 2026-10-06T02:08:04.374Z  INFO 1 --- [cuentas-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+cuentas-service-1   | 2026-10-06T02:08:04.391Z  INFO 1 --- [cuentas-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+cuentas-service-1   | 2026-10-06T02:08:04.391Z  INFO 1 --- [cuentas-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+cuentas-service-1   | 2026-10-06T02:08:04.423Z  INFO 1 --- [cuentas-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+cuentas-service-1   | 2026-10-06T02:08:04.425Z  INFO 1 --- [cuentas-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2311 ms
+cuentas-service-1   | 2026-10-06T02:08:04.732Z  INFO 1 --- [cuentas-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+cuentas-service-1   | 2026-10-06T02:08:05.012Z  INFO 1 --- [cuentas-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@34f60be9
+cuentas-service-1   | 2026-10-06T02:08:05.017Z  INFO 1 --- [cuentas-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+cuentas-service-1   | 2026-10-06T02:08:05.819Z  INFO 1 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ221000: Primary message broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=/tmp/5A853D0086A435370765CD3115D0D21B72882ED7/artemis-data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/largemessages,pagingDirectory=data/paging)
+mysql-1             | 2026-10-06 02:06:51+00:00 [Note] [Entrypoint]: Stopping temporary server
+mysql-1             | 2026-10-06T02:06:51.516309Z 14 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.4.11).
+mysql-1             | 2026-10-06T02:06:52.574227Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.4.11)  MySQL Community Server - GPL.
+mysql-1             | 2026-10-06T02:06:52.574273Z 0 [System] [MY-015016] [Server] MySQL Server - end.
+config-server-1     |  :: Spring Boot ::               (v3.5.16)
+discovery-server-1  | 2026-10-06T02:09:55.816Z  INFO 1 --- [discovery-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 3ms
+discovery-server-1  | 2026-10-06T02:09:59.867Z ERROR 1 --- [discovery-server] [get_localhost-2] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+cuentas-service-1   | 2026-10-06T02:08:05.831Z  INFO 1 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ221045: libaio is not available, switching the configuration into NIO
+config-server-1     | 
+mysql-1             | 2026-10-06 02:06:53+00:00 [Note] [Entrypoint]: Temporary server stopped
+mysql-1             | 
+config-server-1     | 2026-10-06T02:07:46.564Z  INFO 1 --- [config-server] [           main] c.d.c.ConfigServerApplication            : Starting ConfigServerApplication v2.0.0 using Java 17.0.20.1 with PID 1 (/app/app.jar started by banco in /app)
+config-server-1     | 2026-10-06T02:07:46.575Z  INFO 1 --- [config-server] [           main] c.d.c.ConfigServerApplication            : The following 1 profile is active: "native"
+config-server-1     | 2026-10-06T02:07:49.696Z  INFO 1 --- [config-server] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a0dee9ed-b0f4-3b85-a5a1-93f0a396e3a2
+config-server-1     | 2026-10-06T02:07:50.384Z  INFO 1 --- [config-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8888 (http)
+config-server-1     | 2026-10-06T02:07:50.420Z  INFO 1 --- [config-server] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+config-server-1     | 2026-10-06T02:07:50.421Z  INFO 1 --- [config-server] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+config-server-1     | 2026-10-06T02:07:50.476Z  INFO 1 --- [config-server] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+config-server-1     | 2026-10-06T02:07:50.478Z  INFO 1 --- [config-server] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3755 ms
+config-server-1     | 2026-10-06T02:07:51.258Z  INFO 1 --- [config-server] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name infraUsers
+config-server-1     | 2026-10-06T02:07:51.932Z  INFO 1 --- [config-server] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+config-server-1     | 2026-10-06T02:07:52.945Z  INFO 1 --- [config-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8888 (http) with context path '/'
+config-server-1     | 2026-10-06T02:07:53.001Z  INFO 1 --- [config-server] [           main] c.d.c.ConfigServerApplication            : Started ConfigServerApplication in 7.801 seconds (process running for 8.857)
+cuentas-service-1   | 2026-10-06T02:08:05.858Z  INFO 1 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ221057: Global Max Size is being adjusted to 1/2 of the JVM max size (-Xmx). being defined as 182452224
+cuentas-service-1   | 2026-10-06T02:08:05.912Z  INFO 1 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+cuentas-service-1   | 2026-10-06T02:08:05.950Z  INFO 1 --- [cuentas-service] [           main] org.apache.activemq.audit.base           : AMQ601138: User anonymous@unknown is getting notification info on target resource: null
+cuentas-service-1   | 2026-10-06T02:08:05.951Z  INFO 1 --- [cuentas-service] [           main] org.apache.activemq.audit.base           : AMQ601019: User anonymous@unknown is getting mbean info on target resource: org.apache.activemq.artemis.core.management.impl.ActiveMQServerControlImpl@7b92ea9d
+cuentas-service-1   | 2026-10-06T02:08:05.952Z  INFO 1 --- [cuentas-service] [           main] org.apache.activemq.audit.base           : AMQ601138: User anonymous@unknown is getting notification info on target resource: ActiveMQServerImpl::name=localhost
+cuentas-service-1   | 2026-10-06T02:08:05.964Z  INFO 1 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ224092: Despite disabled persistence, page files will be persisted.
+cuentas-service-1   | 2026-10-06T02:08:05.981Z  INFO 1 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ221080: Deploying address DLQ supporting [ANYCAST]
+cuentas-service-1   | 2026-10-06T02:08:05.986Z  INFO 1 --- [cuentas-service] [           main] org.apache.activemq.audit.base           : AMQ601019: User anonymous@unknown is getting mbean info on target resource: org.apache.activemq.artemis.core.management.impl.AddressControlImpl@66046e7c
+cuentas-service-1   | 2026-10-06T02:08:05.990Z  INFO 1 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ221003: Deploying ANYCAST queue DLQ on address DLQ
+cuentas-service-1   | 2026-10-06T02:08:06.121Z  INFO 1 --- [cuentas-service] [           main] org.apache.activemq.audit.base           : AMQ601019: User anonymous@unknown is getting mbean info on target resource: org.apache.activemq.artemis.core.management.impl.QueueControlImpl@78b2d29e
+mysql-1             | 2026-10-06 02:06:53+00:00 [Note] [Entrypoint]: MySQL init process done. Ready for start up.
+artemis-1           | 
+mysql-1             | 
+mysql-1             | 2026-10-06T02:06:53.535950Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+mysql-1             | 2026-10-06T02:06:53.765528Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.4.11) starting as process 1
+mysql-1             | 2026-10-06T02:06:53.771959Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+mysql-1             | 2026-10-06T02:06:53.996768Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+mysql-1             | 2026-10-06T02:06:54.311235Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+mysql-1             | 2026-10-06T02:06:54.311354Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+mysql-1             | 2026-10-06T02:06:54.326685Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+discovery-server-1  | 2026-10-06T02:09:59.867Z  WARN 1 --- [discovery-server] [get_localhost-2] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-2 due to permanent error
+artemis-1           | WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+artemis-1           | WARNING: sun.misc.Unsafe::allocateMemory has been called by io.netty.util.internal.PlatformDependent0$2 (file:/opt/artemis/lib/netty-common-4.1.137.Final.jar)
+mysql-1             | 2026-10-06T02:06:54.370877Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+artemis-1           | WARNING: Please consider reporting this to the maintainers of class io.netty.util.internal.PlatformDependent0$2
+artemis-1           | WARNING: sun.misc.Unsafe::allocateMemory will be removed in a future release
+artemis-1           | WARNING: A restricted method in java.lang.System has been called
+artemis-1           | WARNING: java.lang.System::loadLibrary has been called by org.apache.activemq.artemis.nativo.jlibaio.LibaioContext in an unnamed module (file:/opt/artemis/lib/activemq-artemis-native-2.0.0.jar)
+artemis-1           | WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+artemis-1           | WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+artemis-1           | 
+artemis-1           | 2026-10-06 02:06:45,416 INFO  [org.apache.activemq.artemis.integration.bootstrap] AMQ101000: Starting Apache Artemis Server version 2.57.0
+artemis-1           | 2026-10-06 02:06:45,539 INFO  [org.apache.activemq.artemis.core.server] AMQ221000: Primary message broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/large-messages,pagingDirectory=data/paging)
+artemis-1           | 2026-10-06 02:06:45,621 INFO  [org.apache.activemq.artemis.core.server] AMQ221012: Using AIO Journal
+artemis-1           | 2026-10-06 02:06:45,795 INFO  [org.apache.activemq.artemis.core.server] AMQ221057: Global Max Size is being adjusted to 1/2 of the JVM max size (-Xmx). being defined as 1073741824
+config-server-1     | 2026-10-06T02:07:54.470Z  INFO 1 --- [config-server] [nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+artemis-1           | 2026-10-06 02:06:45,894 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+config-server-1     | 2026-10-06T02:07:54.470Z  INFO 1 --- [config-server] [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+discovery-server-1  | 2026-10-06T02:10:09.940Z ERROR 1 --- [discovery-server] [get_localhost-3] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+config-server-1     | 2026-10-06T02:07:54.473Z  INFO 1 --- [config-server] [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+discovery-server-1  | 2026-10-06T02:10:09.940Z  WARN 1 --- [discovery-server] [get_localhost-3] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-3 due to permanent error
+discovery-server-1  | 2026-10-06T02:10:20.010Z ERROR 1 --- [discovery-server] [get_localhost-5] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:10:20.010Z  WARN 1 --- [discovery-server] [get_localhost-5] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-5 due to permanent error
+config-server-1     | 2026-10-06T02:08:01.637Z  INFO 1 --- [config-server] [nio-8888-exec-2] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'class path resource [config-repo/cuentas-service.yml]' via location 'classpath:/config-repo/'
+discovery-server-1  | 2026-10-06T02:10:30.094Z ERROR 1 --- [discovery-server] [get_localhost-4] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+config-server-1     | 2026-10-06T02:08:01.812Z  INFO 1 --- [config-server] [nio-8888-exec-3] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'class path resource [config-repo/cuentas-service-mysql.yml]' via location 'classpath:/config-repo/'
+cuentas-service-1   | 2026-10-06T02:08:06.123Z  INFO 1 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ221080: Deploying address ExpiryQueue supporting [ANYCAST]
+config-server-1     | 2026-10-06T02:08:01.812Z  INFO 1 --- [config-server] [nio-8888-exec-3] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'class path resource [config-repo/cuentas-service.yml]' via location 'classpath:/config-repo/'
+config-server-1     | 2026-10-06T02:11:26.328Z  INFO 1 --- [config-server] [io-8888-exec-10] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'class path resource [config-repo/cuentas-service.yml]' via location 'classpath:/config-repo/'
+cuentas-service-1   | 2026-10-06T02:08:06.123Z  INFO 1 --- [cuentas-service] [           main] org.apache.activemq.audit.base           : AMQ601019: User anonymous@unknown is getting mbean info on target resource: org.apache.activemq.artemis.core.management.impl.AddressControlImpl@4419cd6e
+mysql-1             | 2026-10-06T02:06:54.371485Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.4.11'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+cuentas-service-1   | 2026-10-06T02:08:06.123Z  INFO 1 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ221003: Deploying ANYCAST queue ExpiryQueue on address ExpiryQueue
+cuentas-service-1   | 2026-10-06T02:08:06.124Z  INFO 1 --- [cuentas-service] [           main] org.apache.activemq.audit.base           : AMQ601019: User anonymous@unknown is getting mbean info on target resource: org.apache.activemq.artemis.core.management.impl.QueueControlImpl@3055f310
+artemis-1           | 2026-10-06 02:06:45,896 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+cuentas-service-1   | 2026-10-06T02:08:06.126Z  INFO 1 --- [cuentas-service] [           main] org.apache.activemq.audit.base           : AMQ601019: User anonymous@unknown is getting mbean info on target resource: org.apache.activemq.artemis.core.management.impl.AddressControlImpl@1e965426
+artemis-1           | 2026-10-06 02:06:45,897 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+artemis-1           | 2026-10-06 02:06:45,898 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-mqtt-protocol]. Adding protocol support for: MQTT
+artemis-1           | 2026-10-06 02:06:45,899 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-openwire-protocol]. Adding protocol support for: OPENWIRE
+artemis-1           | 2026-10-06 02:06:45,900 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+artemis-1           | 2026-10-06 02:06:46,086 INFO  [org.apache.activemq.artemis.core.server] AMQ221034: Waiting indefinitely to obtain primary lock
+artemis-1           | 2026-10-06 02:06:46,087 INFO  [org.apache.activemq.artemis.core.server] AMQ221035: Primary Server Obtained primary lock
+artemis-1           | 2026-10-06 02:06:46,345 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address DLQ supporting [ANYCAST]
+artemis-1           | 2026-10-06 02:06:46,394 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue DLQ on address DLQ
+artemis-1           | 2026-10-06 02:06:46,544 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address ExpiryQueue supporting [ANYCAST]
+discovery-server-1  | 2026-10-06T02:10:30.094Z  WARN 1 --- [discovery-server] [get_localhost-4] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-4 due to permanent error
+discovery-server-1  | 2026-10-06T02:10:40.162Z ERROR 1 --- [discovery-server] [get_localhost-6] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:10:40.162Z  WARN 1 --- [discovery-server] [get_localhost-6] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-6 due to permanent error
+cuentas-service-1   | 2026-10-06T02:08:06.180Z  INFO 1 --- [cuentas-service] [           main] org.apache.activemq.audit.base           : AMQ601019: User anonymous@unknown is getting mbean info on target resource: org.apache.activemq.artemis.core.management.impl.AcceptorControlImpl@fa689db
+artemis-1           | 2026-10-06 02:06:46,545 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue ExpiryQueue on address ExpiryQueue
+artemis-1           | 2026-10-06 02:06:47,519 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61616 for protocols [CORE,MQTT,AMQP,STOMP,HORNETQ,OPENWIRE]
+discovery-server-1  | 2026-10-06T02:10:50.229Z ERROR 1 --- [discovery-server] [et_localhost-10] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+artemis-1           | 2026-10-06 02:06:47,561 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5445 for protocols [HORNETQ,STOMP]
+discovery-server-1  | 2026-10-06T02:10:50.229Z  WARN 1 --- [discovery-server] [et_localhost-10] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-10 due to permanent error
+discovery-server-1  | 2026-10-06T02:10:55.816Z  INFO 1 --- [discovery-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 3ms
+artemis-1           | 2026-10-06 02:06:47,581 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5672 for protocols [AMQP]
+artemis-1           | 2026-10-06 02:06:47,632 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:1883 for protocols [MQTT]
+artemis-1           | 2026-10-06 02:06:47,644 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61613 for protocols [STOMP]
+artemis-1           | 2026-10-06 02:06:47,655 INFO  [org.apache.activemq.artemis.core.server] AMQ221007: Server is now active
+artemis-1           | 2026-10-06 02:06:47,656 INFO  [org.apache.activemq.artemis.core.server] AMQ221001: Apache Artemis Message Broker version 2.57.0 [0.0.0.0, nodeID=94d94487-c12a-11f1-84d2-52b2b697dadc] 
+artemis-1           | 2026-10-06 02:06:47,748 INFO  [org.apache.activemq.artemis] AMQ241003: Starting embedded web server
+artemis-1           | 2026-10-06 02:06:49,010 INFO  [io.hawt.HawtioContextListener] Initialising Hawtio services
+artemis-1           | 2026-10-06 02:06:49,024 INFO  [io.hawt.jmx.JmxTreeWatcher] Welcome to Hawtio 4.7.0
+artemis-1           | 2026-10-06 02:06:49,040 INFO  [io.hawt.web.auth.AuthenticationConfiguration] Authentication throttling is enabled
+artemis-1           | 2026-10-06 02:06:49,045 INFO  [io.hawt.web.auth.AuthenticationConfiguration] Starting Hawtio authentication filter, JAAS realm: "activemq" authorized role(s): amq, role principal class names: org.apache.activemq.artemis.spi.core.security.jaas.RolePrincipal
+artemis-1           | 2026-10-06 02:06:49,046 INFO  [io.hawt.web.auth.AuthenticationConfiguration] Looking for OIDC configuration file in: /var/lib/artemis-instance/etc/hawtio-oidc.properties
+artemis-1           | 2026-10-06 02:06:49,163 INFO  [io.hawt.web.auth.ClientRouteRedirectFilter] Hawtio ClientRouteRedirectFilter is using 1800 sec. HttpSession timeout
+artemis-1           | 2026-10-06 02:06:49,242 INFO  [org.apache.activemq.artemis] AMQ241001: HTTP Server started at http://0.0.0.0:8161
+artemis-1           | 2026-10-06 02:06:49,243 INFO  [org.apache.activemq.artemis] AMQ241002: Artemis Jolokia REST API available at http://0.0.0.0:8161/console/jolokia
+artemis-1           | 2026-10-06 02:06:49,244 INFO  [org.apache.activemq.artemis] AMQ241004: Artemis Console available at http://0.0.0.0:8161/console
+cuentas-service-1   | 2026-10-06T02:08:06.190Z  INFO 1 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ221007: Server is now active
+cuentas-service-1   | 2026-10-06T02:08:06.191Z  INFO 1 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.40.0 [localhost, nodeID=c4b3f09e-c12a-11f1-b015-921f511eb874] 
+cuentas-service-1   | 2026-10-06T02:08:06.779Z  INFO 1 --- [cuentas-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+cuentas-service-1   | 2026-10-06T02:08:07.518Z  INFO 1 --- [cuentas-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+cuentas-service-1   | 2026-10-06T02:08:07.748Z  INFO 1 --- [cuentas-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+cuentas-service-1   | 2026-10-06T02:08:07.785Z  INFO 1 --- [cuentas-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+cuentas-service-1   | 2026-10-06T02:08:07.790Z  INFO 1 --- [cuentas-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+cuentas-service-1   | 2026-10-06T02:08:07.803Z  INFO 1 --- [cuentas-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+cuentas-service-1   | 2026-10-06T02:08:07.804Z  INFO 1 --- [cuentas-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+cuentas-service-1   | 2026-10-06T02:08:07.804Z  INFO 1 --- [cuentas-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+discovery-server-1  | 2026-10-06T02:11:00.297Z ERROR 1 --- [discovery-server] [et_localhost-11] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:11:00.297Z  WARN 1 --- [discovery-server] [et_localhost-11] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-11 due to permanent error
+discovery-server-1  | 2026-10-06T02:11:10.373Z ERROR 1 --- [discovery-server] [et_localhost-13] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+cuentas-service-1   | 2026-10-06T02:08:07.804Z  INFO 1 --- [cuentas-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+discovery-server-1  | 2026-10-06T02:11:10.373Z  WARN 1 --- [discovery-server] [et_localhost-13] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-13 due to permanent error
+discovery-server-1  | 2026-10-06T02:11:20.441Z ERROR 1 --- [discovery-server] [et_localhost-16] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:11:20.441Z  WARN 1 --- [discovery-server] [et_localhost-16] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-16 due to permanent error
+discovery-server-1  | 2026-10-06T02:11:30.507Z ERROR 1 --- [discovery-server] [get_localhost-9] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:11:30.507Z  WARN 1 --- [discovery-server] [get_localhost-9] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-9 due to permanent error
+discovery-server-1  | 2026-10-06T02:11:40.575Z ERROR 1 --- [discovery-server] [et_localhost-15] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:11:40.576Z  WARN 1 --- [discovery-server] [et_localhost-15] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-15 due to permanent error
+discovery-server-1  | 2026-10-06T02:11:50.643Z ERROR 1 --- [discovery-server] [get_localhost-7] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 401; discarding 1 replication tasks
+discovery-server-1  | 2026-10-06T02:11:50.643Z  WARN 1 --- [discovery-server] [get_localhost-7] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-7 due to permanent error
+cuentas-service-1   | 2026-10-06T02:08:07.804Z  INFO 1 --- [cuentas-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+cuentas-service-1   | 2026-10-06T02:08:07.804Z  INFO 1 --- [cuentas-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+cuentas-service-1   | 2026-10-06T02:08:07.804Z  INFO 1 --- [cuentas-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+cuentas-service-1   | 2026-10-06T02:08:08.514Z  INFO 1 --- [cuentas-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+cuentas-service-1   | 2026-10-06T02:08:08.517Z  INFO 1 --- [cuentas-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 10
+cuentas-service-1   | 2026-10-06T02:08:08.521Z  INFO 1 --- [cuentas-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+cuentas-service-1   | 2026-10-06T02:08:08.523Z  INFO 1 --- [cuentas-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1791252488523 with initial instances count: 0
+cuentas-service-1   | 2026-10-06T02:08:08.530Z  INFO 1 --- [cuentas-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CUENTAS-SERVICE with eureka with status UP
+cuentas-service-1   | 2026-10-06T02:08:08.531Z  INFO 1 --- [cuentas-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1791252488531, current=UP, previous=STARTING]
+cuentas-service-1   | 2026-10-06T02:08:08.534Z  INFO 1 --- [cuentas-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUENTAS-SERVICE/a285a6a01e8c:cuentas-service:8081: registering service...
+cuentas-service-1   | 2026-10-06T02:08:08.560Z  INFO 1 --- [cuentas-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+cuentas-service-1   | 2026-10-06T02:08:08.561Z  INFO 1 --- [cuentas-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8081
+cuentas-service-1   | 2026-10-06T02:08:08.824Z  INFO 1 --- [cuentas-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUENTAS-SERVICE/a285a6a01e8c:cuentas-service:8081 - registration status: 204
+cuentas-service-1   | 2026-10-06T02:08:09.150Z  INFO 1 --- [cuentas-service] [           main] c.d.c.CuentasServiceApplication          : Started CuentasServiceApplication in 8.495 seconds (process running for 9.162)
+cuentas-service-1   | 2026-10-06T02:08:10.266Z  INFO 1 --- [cuentas-service] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+cuentas-service-1   | 2026-10-06T02:08:10.267Z  INFO 1 --- [cuentas-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+cuentas-service-1   | 2026-10-06T02:08:10.270Z  INFO 1 --- [cuentas-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+cuentas-service-1   | 2026-10-06T02:08:10.447Z  INFO 1 --- [cuentas-service] [           main] c.d.c.config.MigracionImportador         : MIGRACION completada: cuentas=50, transacciones=387, movimientos_anuales=524
+cuentas-service-1   | 2026-10-06T02:08:13.518Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+cuentas-service-1   | 2026-10-06T02:08:13.518Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+cuentas-service-1   | 2026-10-06T02:08:13.518Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+cuentas-service-1   | 2026-10-06T02:08:13.518Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+cuentas-service-1   | 2026-10-06T02:08:13.518Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+cuentas-service-1   | 2026-10-06T02:08:13.518Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+cuentas-service-1   | 2026-10-06T02:08:13.518Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+cuentas-service-1   | 2026-10-06T02:08:13.592Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+cuentas-service-1   | 2026-10-06T02:08:18.593Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+cuentas-service-1   | 2026-10-06T02:08:18.594Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+cuentas-service-1   | 2026-10-06T02:08:18.594Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+cuentas-service-1   | 2026-10-06T02:08:18.594Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+cuentas-service-1   | 2026-10-06T02:08:18.594Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+cuentas-service-1   | 2026-10-06T02:08:18.594Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+cuentas-service-1   | 2026-10-06T02:08:18.594Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+cuentas-service-1   | 2026-10-06T02:08:18.667Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+cuentas-service-1   | 2026-10-06T02:08:23.668Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+cuentas-service-1   | 2026-10-06T02:08:23.668Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+cuentas-service-1   | 2026-10-06T02:08:23.668Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+cuentas-service-1   | 2026-10-06T02:08:23.668Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+cuentas-service-1   | 2026-10-06T02:08:23.668Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+cuentas-service-1   | 2026-10-06T02:08:23.668Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+cuentas-service-1   | 2026-10-06T02:08:23.668Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+cuentas-service-1   | 2026-10-06T02:08:23.743Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+cuentas-service-1   | 2026-10-06T02:08:28.737Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+cuentas-service-1   | 2026-10-06T02:08:28.738Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+cuentas-service-1   | 2026-10-06T02:08:28.738Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+cuentas-service-1   | 2026-10-06T02:08:28.738Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+cuentas-service-1   | 2026-10-06T02:08:28.738Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+cuentas-service-1   | 2026-10-06T02:08:28.738Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+cuentas-service-1   | 2026-10-06T02:08:28.738Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+cuentas-service-1   | 2026-10-06T02:08:28.812Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+cuentas-service-1   | 2026-10-06T02:08:33.813Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+cuentas-service-1   | 2026-10-06T02:08:33.813Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+cuentas-service-1   | 2026-10-06T02:08:33.814Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+cuentas-service-1   | 2026-10-06T02:08:33.814Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+cuentas-service-1   | 2026-10-06T02:08:33.814Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+cuentas-service-1   | 2026-10-06T02:08:33.814Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+cuentas-service-1   | 2026-10-06T02:08:33.814Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+cuentas-service-1   | 2026-10-06T02:08:33.899Z  INFO 1 --- [cuentas-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+cuentas-service-1   | 2026-10-06T02:11:28.355Z  INFO 1 --- [cuentas-service] [   scheduling-1] c.d.c.eventos.ReportePublisher           : JMS_PUBLICADO solicitud=d0cd367c-6a62-49b7-abec-65148d080022 cola=banco.reportes.solicitados
+cuentas-service-1   | 2026-10-06T02:11:28.369Z  INFO 1 --- [cuentas-service] [ntContainer#0-1] c.d.c.eventos.ReporteConsumer            : JMS_CONSUMIDO solicitud=d0cd367c-6a62-49b7-abec-65148d080022 estado=COMPLETADO

@@ -1,0 +1,150 @@
+﻿name: banco-xyz-s8
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: bank_cloud
+      MYSQL_USER: banco
+      MYSQL_PASSWORD: ${DB_PASSWORD:?Define DB_PASSWORD en .env}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Define MYSQL_ROOT_PASSWORD en .env}
+    volumes:
+    - mysql_data:/var/lib/mysql
+    networks:
+    - banco
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - MYSQL_PWD=$$MYSQL_ROOT_PASSWORD mysqladmin ping -h localhost -u root --silent
+      interval: 10s
+      timeout: 5s
+      start_period: 30s
+      retries: 20
+    restart: unless-stopped
+    mem_limit: 1g
+  artemis:
+    image: apache/artemis:2.57.0-alpine
+    environment:
+      ARTEMIS_USER: ${JMS_USER:-artemis}
+      ARTEMIS_PASSWORD: ${JMS_PASSWORD:?Define JMS_PASSWORD en .env}
+      ANONYMOUS_LOGIN: 'false'
+    volumes:
+    - artemis_data:/var/lib/artemis-instance
+    ports:
+    - 127.0.0.1:8161:8161
+    networks:
+    - banco
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - /var/lib/artemis-instance/bin/artemis check node --url tcp://localhost:61616
+        --user "$$ARTEMIS_USER" --password "$$ARTEMIS_PASSWORD" --up
+      interval: 10s
+      timeout: 15s
+      start_period: 40s
+      retries: 15
+    restart: unless-stopped
+    mem_limit: 512m
+  config-server:
+    image: banco-xyz/config-server:s8
+    build:
+      context: .
+      args:
+        MODULE: config-server
+    environment:
+      APP_PORT: 8888
+      CLOUD_USER: ${CLOUD_USER:-cloud}
+      CLOUD_PASSWORD: ${CLOUD_PASSWORD:?Define CLOUD_PASSWORD en .env}
+    ports:
+    - 127.0.0.1:8888:8888
+    networks:
+    - banco
+    restart: unless-stopped
+    mem_limit: 512m
+  discovery-server:
+    image: banco-xyz/discovery-server:s8
+    build:
+      context: .
+      args:
+        MODULE: discovery-server
+    environment:
+      APP_PORT: 8761
+      CLOUD_USER: ${CLOUD_USER:-cloud}
+      CLOUD_PASSWORD: ${CLOUD_PASSWORD:?Define CLOUD_PASSWORD en .env}
+    ports:
+    - 127.0.0.1:8761:8761
+    networks:
+    - banco
+    restart: unless-stopped
+    mem_limit: 512m
+  auth-server:
+    image: banco-xyz/auth-server:s8
+    build:
+      context: .
+      args:
+        MODULE: auth-server
+    environment:
+      APP_PORT: 9000
+      OAUTH_ISSUER: ${OAUTH_ISSUER:-http://localhost:9000}
+      OAUTH_KEY_FILE: /app/keys/auth-rsa.json
+      OAUTH_ADMIN_SECRET: ${OAUTH_ADMIN_SECRET:?Define OAUTH_ADMIN_SECRET en .env}
+      OAUTH_READER_SECRET: ${OAUTH_READER_SECRET:?Define OAUTH_READER_SECRET en .env}
+      ADMIN_USER: ${ADMIN_USER:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Define ADMIN_PASSWORD en .env}
+      READER_USER: ${READER_USER:-consulta}
+      READER_PASSWORD: ${READER_PASSWORD:?Define READER_PASSWORD en .env}
+    volumes:
+    - auth_keys:/app/keys
+    ports:
+    - 127.0.0.1:19000:9000
+    networks:
+    - banco
+    restart: unless-stopped
+    mem_limit: 512m
+  cuentas-service:
+    image: banco-xyz/cuentas-service:s8
+    build:
+      context: .
+      args:
+        MODULE: cuentas-service
+    environment:
+      APP_PORT: 8081
+      SPRING_PROFILES_ACTIVE: ${APP_PROFILES:-mysql}
+      CONFIG_SERVER_URL: http://config-server:8888
+      DISCOVERY_HOST: discovery-server
+      CLOUD_USER: ${CLOUD_USER:-cloud}
+      CLOUD_PASSWORD: ${CLOUD_PASSWORD:?Define CLOUD_PASSWORD en .env}
+      OAUTH_ISSUER: ${OAUTH_ISSUER:-http://localhost:9000}
+      OAUTH_JWKS_URL: http://auth-server:9000/oauth2/jwks
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: bank_cloud
+      DB_USER: banco
+      DB_PASSWORD: ${DB_PASSWORD:?Define DB_PASSWORD en .env}
+      JMS_BROKER_URL: tcp://artemis:61616?callTimeout=3000&initialConnectAttempts=1&reconnectAttempts=1&retryInterval=1000
+      JMS_USER: ${JMS_USER:-artemis}
+      JMS_PASSWORD: ${JMS_PASSWORD:?Define JMS_PASSWORD en .env}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      artemis:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
+      discovery-server:
+        condition: service_healthy
+      auth-server:
+        condition: service_healthy
+    ports:
+    - 127.0.0.1:8081:8081
+    networks:
+    - banco
+    restart: unless-stopped
+    mem_limit: 512m
+volumes:
+  mysql_data: null
+  artemis_data: null
+  auth_keys: null
+networks:
+  banco:
+    driver: bridge
+

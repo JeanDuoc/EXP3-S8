@@ -1,0 +1,17 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
+  artemis:
+    mode: embedded
+    embedded:
+      persistent: false
+      queues: banco.reportes.solicitados
+app:
+  jms:
+    queue: banco.reportes.solicitados
+  eventos:
+    publisher-delay-ms: 200

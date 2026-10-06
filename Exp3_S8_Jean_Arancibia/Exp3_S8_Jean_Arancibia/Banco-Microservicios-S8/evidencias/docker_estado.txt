@@ -1,0 +1,7 @@
+﻿NAME                              IMAGE                           COMMAND                  SERVICE            CREATED         STATUS                   PORTS
+banco-xyz-s8-artemis-1            apache/artemis:2.57.0-alpine    "/docker-run.sh run"     artemis            5 minutes ago   Up 5 minutes (healthy)   127.0.0.1:8161->8161/tcp
+banco-xyz-s8-auth-server-1        banco-xyz/auth-server:s8        "java -jar /app/app.ÔÇª"   auth-server        4 minutes ago   Up 4 minutes (healthy)   127.0.0.1:19000->9000/tcp
+banco-xyz-s8-config-server-1      banco-xyz/config-server:s8      "java -jar /app/app.ÔÇª"   config-server      4 minutes ago   Up 4 minutes (healthy)   127.0.0.1:8888->8888/tcp
+banco-xyz-s8-cuentas-service-1    banco-xyz/cuentas-service:s8    "java -jar /app/app.ÔÇª"   cuentas-service    4 minutes ago   Up 3 minutes (healthy)   127.0.0.1:8081->8081/tcp
+banco-xyz-s8-discovery-server-1   banco-xyz/discovery-server:s8   "java -jar /app/app.ÔÇª"   discovery-server   4 minutes ago   Up 4 minutes (healthy)   127.0.0.1:8761->8761/tcp
+banco-xyz-s8-mysql-1              mysql:8.4                       "docker-entrypoint.sÔÇª"   mysql              5 minutes ago   Up 5 minutes (healthy)   3306/tcp, 33060/tcp

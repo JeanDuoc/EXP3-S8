@@ -1,0 +1,17 @@
+Compilación y pruebas reales - Banco XYZ Semana 8
+Java 17; Spring Boot 3.5.16; Spring Cloud 2025.0.3
+Comando: mvn verify
+
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.64 s -- in cl.duoc.cuentasservice.BancoIntegrationTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.85 s -- in cl.duoc.authserver.OAuthIntegrationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Reactor Summary for Banco XYZ - Microservicios 2.0.0:
+[INFO] Banco XYZ - Microservicios ......................... SUCCESS [  0.002 s]
+[INFO] config-server ...................................... SUCCESS [ 30.871 s]
+[INFO] discovery-server ................................... SUCCESS [ 10.265 s]
+[INFO] cuentas-service .................................... SUCCESS [ 32.920 s]
+[INFO] auth-server ........................................ SUCCESS [ 16.391 s]
+[INFO] BUILD SUCCESS
+[INFO] Total time:  01:45 min
+[INFO] Finished at: 2026-10-05T21:39:40-04:00

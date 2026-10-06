@@ -1,0 +1,697 @@
+Ejecución real - Banco XYZ Semana 8
+Fecha UTC: 2026-10-06T02:15:05.916094+00:00
+
+Resultado: TODAS LAS PRUEBAS EJECUTADAS CORRECTAS
+Circuito: PROBADO
+
+OAuth2 PKCE: {
+  "flujo": "Authorization Code + PKCE S256",
+  "login_y_consentimiento": "CORRECTOS",
+  "intercambio_codigo": "HTTP 200",
+  "api_con_token_usuario": "HTTP 200 - 50 cuentas",
+  "reutilizacion_codigo": "HTTP 400 invalid_grant",
+  "verificador_incorrecto": "HTTP 400 invalid_grant",
+  "tokens": "Omitidos de la evidencia"
+}
+
+1. GET http://localhost:19000/.well-known/openid-configuration
+HTTP 200 (esperado 200)
+{
+  "issuer": "http://localhost:19000",
+  "authorization_endpoint": "http://localhost:19000/oauth2/authorize",
+  "device_authorization_endpoint": "http://localhost:19000/oauth2/device_authorization",
+  "token_endpoint": "http://localhost:19000/oauth2/token",
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_basic",
+    "client_secret_post",
+    "client_secret_jwt",
+    "private_key_jwt",
+    "tls_client_auth",
+    "self_signed_tls_client_auth"
+  ],
+  "jwks_uri": "http://localhost:19000/oauth2/jwks",
+  "userinfo_endpoint": "http://localhost:19000/userinfo",
+  "end_session_endpoint": "http://localhost:19000/connect/logout",
+  "response_types_supported": [
+    "code"
+  ],
+  "grant_types_supported": [
+    "authorization_code",
+    "client_credentials",
+    "refresh_token",
+    "urn:ietf:params:oauth:grant-type:device_code",
+    "urn:ietf:params:oauth:grant-type:token-exchange"
+  ],
+  "revocation_endpoint": "http://localhost:19000/oauth2/revoke",
+  "revocation_endpoint_auth_methods_supported": [
+    "client_secret_basic",
+    "client_secret_post",
+    "client_secret_jwt",
+    "private_key_jwt",
+    "tls_client_auth",
+    "self_signed_tls_client_auth"
+  ],
+  "introspection_endpoint": "http://localhost:19000/oauth2/introspect",
+  "introspection_endpoint_auth_methods_supported": [
+    "client_secret_basic",
+    "client_secret_post",
+    "client_secret_jwt",
+    "private_key_jwt",
+    "tls_client_auth",
+    "self_signed_tls_client_auth"
+  ],
+  "code_challenge_methods_supported": [
+    "S256"
+  ],
+  "tls_client_certificate_bound_access_tokens": true,
+  "dpop_signing_alg_values_supported": [
+    "RS256",
+    "RS384",
+    "RS512",
+    "PS256",
+    "PS384",
+    "PS512",
+    "ES256",
+    "ES384",
+    "ES512"
+  ],
+  "subject_types_supported": [
+    "public"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ],
+  "scopes_supported": [
+    "openid"
+  ]
+}
+
+2. GET http://localhost:19000/oauth2/jwks
+HTTP 200 (esperado 200)
+{
+  "keys": [
+    {
+      "kty": "RSA",
+      "e": "AQAB",
+      "kid": "002781e0-664f-4353-bc9d-3192f8be8afc",
+      "n": "hZ-Fk4j9H1HL01q6NMRoWfGfKk0jmEKQTGOlhfarTSIbZsHvTCCN8DwF6hAy5fGT9iXIkQqV49Tl_1jLux6cVgcyKcDRK8LH4puUkHoW-mX7Y_kHdtCaqoNlhG6nPbpbQVbi2oH7ZXKewNn4-ERBoSGlF9KTtpEe7GJUIRff9OFYxSY8nAGY2S1ShagMbT5M-ZYTAh0X_42NptWGj7cYurSb3QeBSNovjNoipPzQ-a_qaTr6PNtiI3afmaBPIbf2P9y7CBS0blAoSgJNZ7QihEIdl4dQ4gr2cwcFqPM752lO2A6DskQZ6EFmGaMHl9OrcasRh8vCh-qpdS_nlnCM9Q"
+    }
+  ]
+}
+
+3. POST http://localhost:19000/oauth2/token
+HTTP 401 (esperado 401)
+{
+  "error": "invalid_client"
+}
+
+4. POST http://localhost:19000/oauth2/token
+HTTP 400 (esperado 400)
+{
+  "error": "invalid_scope"
+}
+
+5. POST http://localhost:19000/oauth2/token
+HTTP 200 (esperado 200)
+{
+  "access_token": "[TOKEN OMITIDO]",
+  "scope": "cuentas.read reportes.write banco.admin",
+  "token_type": "Bearer",
+  "expires_in": 899
+}
+
+6. GET http://localhost:8081/actuator/health
+HTTP 200 (esperado 200)
+{
+  "status": "UP"
+}
+
+7. GET http://localhost:8888/cuentas-service/default
+HTTP 401 (esperado 401)
+""
+
+8. GET http://localhost:8888/cuentas-service/default
+HTTP 200 (esperado 200)
+{
+  "name": "cuentas-service",
+  "profiles": [
+    "default"
+  ],
+  "label": null,
+  "version": null,
+  "state": null,
+  "propertySources": [
+    {
+      "name": "classpath:/config-repo/cuentas-service.yml",
+      "source": {
+        "server.port": 8081,
+        "spring.security.oauth2.resourceserver.jwt.issuer-uri": "${OAUTH_ISSUER:http://localhost:9000}",
+        "spring.security.oauth2.resourceserver.jwt.jwk-set-uri": "${OAUTH_JWKS_URL:http://localhost:9000/oauth2/jwks}",
+        "spring.artemis.mode": "native",
+        "spring.artemis.broker-url": "${JMS_BROKER_URL:tcp://localhost:61616?callTimeout=3000&initialConnectAttempts=1&reconnectAttempts=1&retryInterval=1000}",
+        "spring.jms.listener.concurrency": 1,
+        "spring.jms.listener.max-concurrency": 1,
+        "spring.datasource.url": "jdbc:h2:file:./data/banco;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE",
+        "spring.datasource.driver-class-name": "org.h2.Driver",
+        "spring.datasource.hikari.maximum-pool-size": 5,
+        "spring.datasource.hikari.connection-timeout": 2000,
+        "spring.sql.init.mode": "always",
+        "spring.sql.init.schema-locations": "classpath:schema.sql",
+        "eureka.client.service-url.defaultZone": "http://${CLOUD_USER:cloud}:${CLOUD_PASSWORD:CloudLocal2026!}@${DISCOVERY_HOST:localhost}:8761/eureka/",
+        "eureka.client.registry-fetch-interval-seconds": 5,
+        "eureka.instance.prefer-ip-address": true,
+        "eureka.instance.lease-renewal-interval-in-seconds": 10,
+        "resilience4j.circuitbreaker.instances.banco.sliding-window-type": "COUNT_BASED",
+        "resilience4j.circuitbreaker.instances.banco.sliding-window-size": 4,
+        "resilience4j.circuitbreaker.instances.banco.minimum-number-of-calls": 4,
+        "resilience4j.circuitbreaker.instances.banco.failure-rate-threshold": 50,
+        "resilience4j.circuitbreaker.instances.banco.wait-duration-in-open-state": "3s",
+        "resilience4j.circuitbreaker.instances.banco.permitted-number-of-calls-in-half-open-state": 2,
+        "resilience4j.timelimiter.instances.banco.timeout-duration": "3s",
+        "spring.cloud.circuitbreaker.resilience4j.enableSemaphoreDefaultBulkhead": true,
+        "management.endpoints.web.exposure.include": "health,info",
+        "management.endpoint.health.show-details": "when-authorized",
+        "app.config-source": "Config Server centralizado - Semana 8",
+        "app.jms.queue": "banco.reportes.solicitados",
+        "app.eventos.publisher-delay-ms": 2000
+      }
+    }
+  ]
+}
+
+9. GET http://localhost:8761/eureka/apps
+HTTP 200 (esperado 200)
+{
+  "applications": {
+    "versions__delta": "1",
+    "apps__hashcode": "DOWN_1_UP_1_",
+    "application": [
+      {
+        "name": "CUENTAS-SERVICE",
+        "instance": [
+          {
+            "instanceId": "08202c423b65:cuentas-service:8081",
+            "hostName": "172.19.0.7",
+            "app": "CUENTAS-SERVICE",
+            "ipAddr": "172.19.0.7",
+            "status": "UP",
+            "overriddenStatus": "UNKNOWN",
+            "port": {
+              "$": 8081,
+              "@enabled": "true"
+            },
+            "securePort": {
+              "$": 443,
+              "@enabled": "false"
+            },
+            "countryId": 1,
+            "dataCenterInfo": {
+              "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+              "name": "MyOwn"
+            },
+            "leaseInfo": {
+              "renewalIntervalInSecs": 10,
+              "durationInSecs": 90,
+              "registrationTimestamp": 1791252840424,
+              "lastRenewalTimestamp": 1791252950433,
+              "evictionTimestamp": 0,
+              "serviceUpTimestamp": 1791252840424
+            },
+            "metadata": {
+              "management.port": "8081"
+            },
+            "homePageUrl": "http://172.19.0.7:8081/",
+            "statusPageUrl": "http://172.19.0.7:8081/actuator/info",
+            "healthCheckUrl": "http://172.19.0.7:8081/actuator/health",
+            "vipAddress": "cuentas-service",
+            "secureVipAddress": "cuentas-service",
+            "isCoordinatingDiscoveryServer": "false",
+            "lastUpdatedTimestamp": "1791252840424",
+            "lastDirtyTimestamp": "1791252840301",
+            "actionType": "ADDED"
+          },
+          {
+            "instanceId": "a285a6a01e8c:cuentas-service:8081",
+            "hostName": "172.19.0.7",
+            "app": "CUENTAS-SERVICE",
+            "ipAddr": "172.19.0.7",
+            "status": "DOWN",
+            "overriddenStatus": "UNKNOWN",
+            "port": {
+              "$": 8081,
+              "@enabled": "true"
+            },
+            "securePort": {
+              "$": 443,
+              "@enabled": "false"
+            },
+            "countryId": 1,
+            "dataCenterInfo": {
+              "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+              "name": "MyOwn"
+            },
+            "leaseInfo": {
+              "renewalIntervalInSecs": 10,
+              "durationInSecs": 90,
+              "registrationTimestamp": 1791252831162,
+              "lastRenewalTimestamp": 1791252831162,
+              "evictionTimestamp": 0,
+              "serviceUpTimestamp": 1791252488787
+            },
+            "metadata": {
+              "management.port": "8081"
+            },
+            "homePageUrl": "http://172.19.0.7:8081/",
+            "statusPageUrl": "http://172.19.0.7:8081/actuator/info",
+            "healthCheckUrl": "http://172.19.0.7:8081/actuator/health",
+            "vipAddress": "cuentas-service",
+            "secureVipAddress": "cuentas-service",
+            "isCoordinatingDiscoveryServer": "false",
+            "lastUpdatedTimestamp": "1791252831162",
+            "lastDirtyTimestamp": "1791252831089",
+            "actionType": "ADDED"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+10. GET http://localhost:8081/api/cuentas
+HTTP 401 (esperado 401)
+""
+
+11. GET http://localhost:8081/api/cuentas
+HTTP 401 (esperado 401)
+""
+
+12. GET http://localhost:8081/api/cuentas
+HTTP 200 (esperado 200)
+{
+  "total_en_respuesta": 50,
+  "primeros_registros": [
+    {
+      "cuentaId": 101,
+      "nombre": "Diana Prince",
+      "saldo": 8000.0,
+      "edad": 35,
+      "tipo": "ahorro",
+      "interesCalculado": 80.0,
+      "saldoFinal": 8080.0
+    },
+    {
+      "cuentaId": 102,
+      "nombre": "Charlie Green",
+      "saldo": 12000.0,
+      "edad": 40,
+      "tipo": "ahorro",
+      "interesCalculado": 120.0,
+      "saldoFinal": 12120.0
+    },
+    {
+      "cuentaId": 103,
+      "nombre": "Diana Prince",
+      "saldo": 8000.0,
+      "edad": 45,
+      "tipo": "prestamo",
+      "interesCalculado": 160.0,
+      "saldoFinal": 8160.0
+    }
+  ]
+}
+
+13. GET http://localhost:8081/api/cuentas/106
+HTTP 200 (esperado 200)
+{
+  "cuentaId": 106,
+  "nombre": "Jane Smith",
+  "saldo": 12000.0,
+  "edad": 40,
+  "tipo": "prestamo",
+  "interesCalculado": 240.0,
+  "saldoFinal": 12240.0
+}
+
+14. GET http://localhost:8081/api/cuentas/999999
+HTTP 404 (esperado 404)
+{
+  "codigo": "NO_ENCONTRADO",
+  "fecha": "2026-10-06T02:15:00.778022238Z",
+  "mensaje": "Cuenta no encontrada: 999999"
+}
+
+15. GET http://localhost:8081/api/transacciones?limite=5&offset=0
+HTTP 200 (esperado 200)
+{
+  "total_en_respuesta": 5,
+  "primeros_registros": [
+    {
+      "id": 1,
+      "fecha": "2024-06-30",
+      "monto": 3000.0,
+      "tipo": "credito"
+    },
+    {
+      "id": 2,
+      "fecha": "2024-04-03",
+      "monto": 1200.0,
+      "tipo": "credito"
+    },
+    {
+      "id": 5,
+      "fecha": "2024-06-17",
+      "monto": 800.0,
+      "tipo": "debito"
+    }
+  ]
+}
+
+16. GET http://localhost:8081/api/transacciones/1
+HTTP 200 (esperado 200)
+{
+  "id": 1,
+  "fecha": "2024-06-30",
+  "monto": 3000.0,
+  "tipo": "credito"
+}
+
+17. GET http://localhost:8081/api/transacciones?limite=0
+HTTP 400 (esperado 400)
+{
+  "codigo": "DATOS_INVALIDOS",
+  "fecha": "2026-10-06T02:15:00.864662498Z",
+  "mensaje": "Revisa los parámetros o el cuerpo de la solicitud"
+}
+
+18. GET http://localhost:8081/api/reportes/anuales?cuentaId=103&limite=5
+HTTP 200 (esperado 200)
+{
+  "total_en_respuesta": 5,
+  "primeros_registros": [
+    {
+      "id": 1,
+      "cuentaId": 103,
+      "fecha": "2024-03-08",
+      "transaccion": "deposito",
+      "monto": 3000.0,
+      "descripcion": "Retiro parcial"
+    },
+    {
+      "id": 17,
+      "cuentaId": 103,
+      "fecha": "2024-10-05",
+      "transaccion": "compra",
+      "monto": 1000.0,
+      "descripcion": "Retiro parcial"
+    },
+    {
+      "id": 19,
+      "cuentaId": 103,
+      "fecha": "2024-08-11",
+      "transaccion": "pago",
+      "monto": 1000.0,
+      "descripcion": "Compra en tienda"
+    }
+  ]
+}
+
+19. GET http://localhost:8081/api/migracion
+HTTP 200 (esperado 200)
+{
+  "baseDeDatos": {
+    "transacciones": 387,
+    "movimientosAnuales": 524,
+    "cuentas": 50
+  },
+  "migracion": {
+    "repositorio": "https://github.com/KariVillagran/bank_legacy_data",
+    "carpeta_origen": "semana_3",
+    "lote_sha256": "a917d7e50e767579e39cdc0f303882cccf28b025d5baceb6210f74afa1a22610",
+    "sha256_fuentes": {
+      "intereses.csv": "69cc39f468db47e4d752657db95ee9caf00ebcaf31581e45e104c4dc4a5e3120",
+      "transacciones.csv": "9a209c71d5556380481731f0fe9ac148a586a7c91698b377481b62e96341e836",
+      "cuentas_anuales.csv": "0690d81fe446affe39857a448ff5590c4f6e6f998150c08934db3aa41683e328"
+    },
+    "archivos": {
+      "intereses.csv": {
+        "leidas": 1000,
+        "aceptadas": 50,
+        "rechazadas": 950
+      },
+      "transacciones.csv": {
+        "leidas": 1000,
+        "aceptadas": 387,
+        "rechazadas": 613
+      },
+      "cuentas_anuales.csv": {
+        "leidas": 1000,
+        "aceptadas": 524,
+        "rechazadas": 476
+      }
+    },
+    "total_leidas": 3000,
+    "total_aceptadas": 961,
+    "total_rechazadas": 2039
+  }
+}
+
+20. GET http://localhost:8081/api/info
+HTTP 200 (esperado 200)
+{
+  "configuracion": "Config Server centralizado - Semana 8",
+  "aplicacion": "cuentas-service"
+}
+
+21. POST http://localhost:8081/api/reportes/solicitudes
+HTTP 202 (esperado 202)
+{
+  "id": "27b40c17-14b7-4412-a96a-83f9ee50db7b",
+  "estado": "PENDIENTE",
+  "creadoEn": "2026-10-06T02:15:00.921080249Z",
+  "completadoEn": null,
+  "resultado": null
+}
+
+22. GET http://localhost:8081/api/reportes/solicitudes/27b40c17-14b7-4412-a96a-83f9ee50db7b
+HTTP 200 (esperado 200)
+{
+  "id": "27b40c17-14b7-4412-a96a-83f9ee50db7b",
+  "estado": "PENDIENTE",
+  "creadoEn": "2026-10-06T02:15:01Z",
+  "completadoEn": null,
+  "resultado": null
+}
+
+23. GET http://localhost:8081/api/reportes/solicitudes/27b40c17-14b7-4412-a96a-83f9ee50db7b
+HTTP 200 (esperado 200)
+{
+  "id": "27b40c17-14b7-4412-a96a-83f9ee50db7b",
+  "estado": "PENDIENTE",
+  "creadoEn": "2026-10-06T02:15:01Z",
+  "completadoEn": null,
+  "resultado": null
+}
+
+24. GET http://localhost:8081/api/reportes/solicitudes/27b40c17-14b7-4412-a96a-83f9ee50db7b
+HTTP 200 (esperado 200)
+{
+  "id": "27b40c17-14b7-4412-a96a-83f9ee50db7b",
+  "estado": "COMPLETADO",
+  "creadoEn": "2026-10-06T02:15:01Z",
+  "completadoEn": "2026-10-06T02:15:02Z",
+  "resultado": {
+    "cuentas": 50,
+    "saldoTotal": 441000.0,
+    "interesTotal": 6800.0,
+    "transacciones": 387,
+    "movimientosAnuales": 524
+  }
+}
+
+25. POST http://localhost:19000/oauth2/token
+HTTP 200 (esperado 200)
+{
+  "access_token": "[TOKEN OMITIDO]",
+  "scope": "cuentas.read",
+  "token_type": "Bearer",
+  "expires_in": 899
+}
+
+26. GET http://localhost:8081/api/cuentas
+HTTP 200 (esperado 200)
+{
+  "total_en_respuesta": 50,
+  "primeros_registros": [
+    {
+      "cuentaId": 101,
+      "nombre": "Diana Prince",
+      "saldo": 8000.0,
+      "edad": 35,
+      "tipo": "ahorro",
+      "interesCalculado": 80.0,
+      "saldoFinal": 8080.0
+    },
+    {
+      "cuentaId": 102,
+      "nombre": "Charlie Green",
+      "saldo": 12000.0,
+      "edad": 40,
+      "tipo": "ahorro",
+      "interesCalculado": 120.0,
+      "saldoFinal": 12120.0
+    },
+    {
+      "cuentaId": 103,
+      "nombre": "Diana Prince",
+      "saldo": 8000.0,
+      "edad": 45,
+      "tipo": "prestamo",
+      "interesCalculado": 160.0,
+      "saldoFinal": 8160.0
+    }
+  ]
+}
+
+27. GET http://localhost:8081/api/admin/circuito
+HTTP 403 (esperado 403)
+""
+
+28. POST http://localhost:8081/api/reportes/solicitudes
+HTTP 403 (esperado 403)
+""
+
+29. POST http://localhost:8081/api/demo/fallo
+HTTP 200 (esperado 200)
+{
+  "falloSimulado": true,
+  "mensaje": "Fallo activado para pruebas"
+}
+
+30. GET http://localhost:8081/api/cuentas
+HTTP 503 (esperado 503)
+{
+  "codigo": "SERVICIO_NO_DISPONIBLE",
+  "fecha": "2026-10-06T02:15:02.204313224Z",
+  "mensaje": "El servicio de datos no se encuentra disponible temporalmente. Intenta nuevamente en unos segundos."
+}
+
+31. GET http://localhost:8081/api/cuentas
+HTTP 503 (esperado 503)
+{
+  "codigo": "SERVICIO_NO_DISPONIBLE",
+  "fecha": "2026-10-06T02:15:02.218542020Z",
+  "mensaje": "El servicio de datos no se encuentra disponible temporalmente. Intenta nuevamente en unos segundos."
+}
+
+32. GET http://localhost:8081/api/cuentas
+HTTP 503 (esperado 503)
+{
+  "codigo": "SERVICIO_NO_DISPONIBLE",
+  "fecha": "2026-10-06T02:15:02.228471445Z",
+  "mensaje": "El servicio de datos no se encuentra disponible temporalmente. Intenta nuevamente en unos segundos."
+}
+
+33. GET http://localhost:8081/api/cuentas
+HTTP 503 (esperado 503)
+{
+  "codigo": "SERVICIO_NO_DISPONIBLE",
+  "fecha": "2026-10-06T02:15:02.237624821Z",
+  "mensaje": "El servicio de datos no se encuentra disponible temporalmente. Intenta nuevamente en unos segundos."
+}
+
+34. GET http://localhost:8081/api/admin/circuito
+HTTP 200 (esperado 200)
+{
+  "estado": "OPEN",
+  "llamadasRechazadas": 2,
+  "llamadasExitosas": 2,
+  "llamadasFallidas": 2,
+  "nombre": "banco"
+}
+
+35. POST http://localhost:8081/api/demo/fallo
+HTTP 200 (esperado 200)
+{
+  "falloSimulado": false,
+  "mensaje": "Fallo desactivado; el circuito se recuperará con las siguientes consultas"
+}
+
+36. GET http://localhost:8081/api/cuentas
+HTTP 200 (esperado 200)
+{
+  "total_en_respuesta": 50,
+  "primeros_registros": [
+    {
+      "cuentaId": 101,
+      "nombre": "Diana Prince",
+      "saldo": 8000.0,
+      "edad": 35,
+      "tipo": "ahorro",
+      "interesCalculado": 80.0,
+      "saldoFinal": 8080.0
+    },
+    {
+      "cuentaId": 102,
+      "nombre": "Charlie Green",
+      "saldo": 12000.0,
+      "edad": 40,
+      "tipo": "ahorro",
+      "interesCalculado": 120.0,
+      "saldoFinal": 12120.0
+    },
+    {
+      "cuentaId": 103,
+      "nombre": "Diana Prince",
+      "saldo": 8000.0,
+      "edad": 45,
+      "tipo": "prestamo",
+      "interesCalculado": 160.0,
+      "saldoFinal": 8160.0
+    }
+  ]
+}
+
+37. GET http://localhost:8081/api/cuentas
+HTTP 200 (esperado 200)
+{
+  "total_en_respuesta": 50,
+  "primeros_registros": [
+    {
+      "cuentaId": 101,
+      "nombre": "Diana Prince",
+      "saldo": 8000.0,
+      "edad": 35,
+      "tipo": "ahorro",
+      "interesCalculado": 80.0,
+      "saldoFinal": 8080.0
+    },
+    {
+      "cuentaId": 102,
+      "nombre": "Charlie Green",
+      "saldo": 12000.0,
+      "edad": 40,
+      "tipo": "ahorro",
+      "interesCalculado": 120.0,
+      "saldoFinal": 12120.0
+    },
+    {
+      "cuentaId": 103,
+      "nombre": "Diana Prince",
+      "saldo": 8000.0,
+      "edad": 45,
+      "tipo": "prestamo",
+      "interesCalculado": 160.0,
+      "saldoFinal": 8160.0
+    }
+  ]
+}
+
+38. GET http://localhost:8081/api/admin/circuito
+HTTP 200 (esperado 200)
+{
+  "estado": "CLOSED",
+  "llamadasRechazadas": 0,
+  "llamadasExitosas": 0,
+  "llamadasFallidas": 0,
+  "nombre": "banco"
+}

@@ -1,0 +1,7 @@
+Comando: python scripts/test_migracion.py
+
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.057s
+
+OK

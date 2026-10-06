@@ -1,0 +1,9 @@
+# Alternativa de desarrollo: broker real Artemis embebido en el proceso de la API.
+# En Docker se usa un broker externo, con volumen persistente.
+spring:
+  artemis:
+    mode: embedded
+    embedded:
+      enabled: true
+      persistent: false
+      queues: banco.reportes.solicitados

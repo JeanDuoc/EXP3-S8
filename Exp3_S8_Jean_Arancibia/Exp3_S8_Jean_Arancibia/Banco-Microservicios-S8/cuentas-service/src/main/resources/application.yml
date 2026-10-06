@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: cuentas-service
+  config:
+    import: configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+  cloud:
+    config:
+      username: ${CLOUD_USER:cloud}
+      password: ${CLOUD_PASSWORD:CloudLocal2026!}
+      request-connect-timeout: 5000
+      request-read-timeout: 5000
+  datasource:
+    username: ${DB_USER:sa}
+    password: ${DB_PASSWORD:}
+  artemis:
+    user: ${JMS_USER:artemis}
+    password: ${JMS_PASSWORD:JmsLocal2026!}

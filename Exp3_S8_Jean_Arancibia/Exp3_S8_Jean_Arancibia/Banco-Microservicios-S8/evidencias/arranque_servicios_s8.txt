@@ -1,0 +1,27 @@
+Ejecución local real con Java 17, H2 y Artemis embebido; no corresponde a una ejecución Docker.
+
+=== config-server ===
+2026-10-05T21:41:49.119-04:00  INFO 7 --- [config-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8888 (http) with context path '/'
+2026-10-05T21:41:49.145-04:00  INFO 7 --- [config-server] [           main] c.d.c.ConfigServerApplication            : Started ConfigServerApplication in 3.893 seconds (process running for 4.583)
+
+=== discovery-server ===
+2026-10-05T21:41:55.853-04:00  INFO 58 --- [discovery-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8761 (http) with context path '/'
+2026-10-05T21:41:55.873-04:00  INFO 58 --- [discovery-server] [           main] c.d.d.DiscoveryServerApplication         : Started DiscoveryServerApplication in 5.34 seconds (process running for 6.041)
+
+=== auth-server ===
+2026-10-05T21:42:00.775-04:00  INFO 144 --- [auth-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9000 (http) with context path '/'
+2026-10-05T21:42:00.791-04:00  INFO 144 --- [auth-server] [           main] c.duoc.authserver.AuthServerApplication  : Started AuthServerApplication in 3.156 seconds (process running for 3.715)
+
+=== cuentas-service ===
+2026-10-05T21:42:03.167-04:00  INFO 192 --- [cuentas-service] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2026-10-05T21:42:03.168-04:00  INFO 192 --- [cuentas-service] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=cuentas-service, profiles=[default], label=null, version=null, state=null
+2026-10-05T21:42:03.168-04:00  INFO 192 --- [cuentas-service] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2026-10-05T21:42:03.168-04:00  INFO 192 --- [cuentas-service] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=cuentas-service, profiles=[demo,local-jms], label=null, version=null, state=null
+2026-10-05T21:42:06.175-04:00  INFO 192 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ221000: Primary message broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=/tmp/C0A8572BE753371C3B768A6B5041F2065544010C/artemis-data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/largemessages,pagingDirectory=data/paging)
+2026-10-05T21:42:06.496-04:00  INFO 192 --- [cuentas-service] [           main] o.apache.activemq.artemis.core.server    : AMQ221007: Server is now active
+2026-10-05T21:42:08.337-04:00  INFO 192 --- [cuentas-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-10-05T21:42:08.596-04:00  INFO 192 --- [cuentas-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUENTAS-SERVICE/8958242abb37:cuentas-service:8081 - registration status: 204
+2026-10-05T21:42:08.616-04:00  INFO 192 --- [cuentas-service] [           main] c.d.c.CuentasServiceApplication          : Started CuentasServiceApplication in 6.803 seconds (process running for 7.371)
+2026-10-05T21:42:08.860-04:00  INFO 192 --- [cuentas-service] [           main] c.d.c.config.MigracionImportador         : MIGRACION completada: cuentas=50, transacciones=387, movimientos_anuales=524
+2026-10-05T21:42:31.708-04:00  INFO 192 --- [cuentas-service] [   scheduling-1] c.d.c.eventos.ReportePublisher           : JMS_PUBLICADO solicitud=8b0b37db-ff93-4006-8120-a36eb32fec3c cola=banco.reportes.solicitados
+2026-10-05T21:42:31.714-04:00  INFO 192 --- [cuentas-service] [ntContainer#0-1] c.d.c.eventos.ReporteConsumer            : JMS_CONSUMIDO solicitud=8b0b37db-ff93-4006-8120-a36eb32fec3c estado=COMPLETADO

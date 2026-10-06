@@ -1,0 +1,19 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: discovery-server
+infra:
+  user: ${CLOUD_USER:cloud}
+  password: ${CLOUD_PASSWORD:CloudLocal2026!}
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    enable-self-preservation: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

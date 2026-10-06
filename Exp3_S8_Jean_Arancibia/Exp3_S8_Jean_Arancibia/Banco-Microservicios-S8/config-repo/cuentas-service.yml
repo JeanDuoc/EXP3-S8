@@ -1,0 +1,63 @@
+server:
+  port: 8081
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${OAUTH_ISSUER:http://localhost:9000}
+          jwk-set-uri: ${OAUTH_JWKS_URL:http://localhost:9000/oauth2/jwks}
+  artemis:
+    mode: native
+    broker-url: ${JMS_BROKER_URL:tcp://localhost:61616?callTimeout=3000&initialConnectAttempts=1&reconnectAttempts=1&retryInterval=1000}
+  jms:
+    listener:
+      concurrency: 1
+      max-concurrency: 1
+  datasource:
+    url: jdbc:h2:file:./data/banco;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 2000
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${CLOUD_USER:cloud}:${CLOUD_PASSWORD:CloudLocal2026!}@${DISCOVERY_HOST:localhost}:8761/eureka/
+    registry-fetch-interval-seconds: 5
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+resilience4j:
+  circuitbreaker:
+    instances:
+      banco:
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 4
+        minimum-number-of-calls: 4
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 3s
+        permitted-number-of-calls-in-half-open-state: 2
+  timelimiter:
+    instances:
+      banco:
+        timeout-duration: 3s
+spring.cloud.circuitbreaker.resilience4j.enableSemaphoreDefaultBulkhead: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+app:
+  config-source: Config Server centralizado - Semana 8
+  jms:
+    queue: banco.reportes.solicitados
+  eventos:
+    publisher-delay-ms: 2000

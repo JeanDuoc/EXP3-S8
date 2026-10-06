@@ -1,0 +1,30 @@
+{
+  "repositorio": "https://github.com/KariVillagran/bank_legacy_data",
+  "carpeta_origen": "semana_3",
+  "lote_sha256": "a917d7e50e767579e39cdc0f303882cccf28b025d5baceb6210f74afa1a22610",
+  "sha256_fuentes": {
+    "intereses.csv": "69cc39f468db47e4d752657db95ee9caf00ebcaf31581e45e104c4dc4a5e3120",
+    "transacciones.csv": "9a209c71d5556380481731f0fe9ac148a586a7c91698b377481b62e96341e836",
+    "cuentas_anuales.csv": "0690d81fe446affe39857a448ff5590c4f6e6f998150c08934db3aa41683e328"
+  },
+  "archivos": {
+    "intereses.csv": {
+      "leidas": 1000,
+      "aceptadas": 50,
+      "rechazadas": 950
+    },
+    "transacciones.csv": {
+      "leidas": 1000,
+      "aceptadas": 387,
+      "rechazadas": 613
+    },
+    "cuentas_anuales.csv": {
+      "leidas": 1000,
+      "aceptadas": 524,
+      "rechazadas": 476
+    }
+  },
+  "total_leidas": 3000,
+  "total_aceptadas": 961,
+  "total_rechazadas": 2039
+}

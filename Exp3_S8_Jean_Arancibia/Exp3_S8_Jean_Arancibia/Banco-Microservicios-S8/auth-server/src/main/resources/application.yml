@@ -1,0 +1,21 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: auth-server
+app:
+  oauth:
+    issuer: ${OAUTH_ISSUER:http://localhost:9000}
+    audience: banco-api
+    key-file: ${OAUTH_KEY_FILE:./keys/auth-rsa.json}
+    admin-client-secret: ${OAUTH_ADMIN_SECRET:AdminClientLocal2026!}
+    reader-client-secret: ${OAUTH_READER_SECRET:ReaderClientLocal2026!}
+    admin-user: ${ADMIN_USER:admin}
+    admin-password: ${ADMIN_PASSWORD:AdminLocal2026!}
+    reader-user: ${READER_USER:consulta}
+    reader-password: ${READER_PASSWORD:ConsultaLocal2026!}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

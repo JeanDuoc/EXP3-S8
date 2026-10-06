@@ -1,0 +1,19 @@
+Docker Compose version v2.39.4
+
+Comando: docker compose --env-file .env.example -f docker-compose.yaml config --quiet
+Resultado: válido; código de salida 0
+
+Servicios orquestados:
+- artemis: apache/artemis:2.57.0-alpine
+- auth-server: banco-xyz/auth-server:s8
+- config-server: banco-xyz/config-server:s8
+- cuentas-service: banco-xyz/cuentas-service:s8
+- discovery-server: banco-xyz/discovery-server:s8
+- mysql: mysql:8.4
+
+Las cuatro aplicaciones tienen healthchecks en el Dockerfile.
+La API depende de cinco componentes saludables.
+MySQL y el puerto JMS no se publican al host.
+
+No se pudo acceder a un motor Docker en el entorno de preparación.
+Esta evidencia valida la configuración; no representa un build ni una ejecución de imágenes.
